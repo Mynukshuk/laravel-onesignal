@@ -97,7 +97,8 @@ class OneSignalClient
             'app_id' => $this->appId,
             'contents' => $contents,
             'include_player_ids' => array($userId),
-            'appearance' => ['ios_badgeType'=>'Increase','ios_badgeCount'=>1]
+            'ios_badgeType'=>'Increase',
+            'ios_badgeCount'=>1
         );
 
         if (isset($url)) {
@@ -128,7 +129,8 @@ class OneSignalClient
             'app_id' => $this->appId,
             'contents' => $contents,
             'filters' => [$tags],
-            'appearance' => ['ios_badgeType'=>'Increase','ios_badgeCount'=>1]
+            'ios_badgeType'=>'Increase',
+            'ios_badgeCount'=>1
         );
 
         if (isset($url)) {
@@ -159,7 +161,8 @@ class OneSignalClient
             'app_id' => $this->appId,
             'contents' => $contents,
             'included_segments' => array('All'),
-            'appearance' => ['ios_badgeType'=>'Increase','ios_badgeCount'=>1]
+            'ios_badgeType'=>'Increase',
+            'ios_badgeCount'=>1
         );
 
         if (isset($url)) {
@@ -190,7 +193,8 @@ class OneSignalClient
             'app_id' => $this->appId,
             'contents' => $contents,
             'included_segments' => [$segment],
-            'appearance' => ['ios_badgeType'=>'Increase','ios_badgeCount'=>1]
+            'ios_badgeType'=>'Increase',
+            'ios_badgeCount'=>1
         );
 
         if (isset($url)) {
