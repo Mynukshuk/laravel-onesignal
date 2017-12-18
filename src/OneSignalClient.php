@@ -96,7 +96,7 @@ class OneSignalClient
         $params = array(
             'app_id' => $this->appId,
             'contents' => $contents,
-            'mutable_content' = 1,
+            'mutable_content' => 1,
             'include_player_ids' => array($userId)
         );
 
@@ -132,7 +132,7 @@ class OneSignalClient
         $params = array(
             'app_id' => $this->appId,
             'contents' => $contents,
-            'mutable_content' = 1,
+            'mutable_content' => 1,
             'filters' => [$tags]
         );
 
