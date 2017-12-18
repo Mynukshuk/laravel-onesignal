@@ -88,7 +88,7 @@ class OneSignalClient
         return $this;
     }
 
-    public function sendNotificationToUser($message, $userId, $url = null, $data = null, $buttons = null, $schedule = null) {
+    public function sendNotificationToUser($message, $userId, $url = null, $data = null, $buttons = null, $schedule = null, $autoInc = true) {
         $contents = array(
             "en" => $message
         );
@@ -96,10 +96,13 @@ class OneSignalClient
         $params = array(
             'app_id' => $this->appId,
             'contents' => $contents,
-            'include_player_ids' => array($userId),
-            'ios_badgeType'=>'Increase',
-            'ios_badgeCount'=>1
+            'include_player_ids' => array($userId)
         );
+
+        if ($autoInc) {
+            $params['ios_badgeType'] = 'Increase';
+            $params['ios_badgeCount'] = 1;
+        }
 
         if (isset($url)) {
             $params['url'] = $url;
@@ -120,7 +123,7 @@ class OneSignalClient
         $this->sendNotificationCustom($params);
     }
 
-    public function sendNotificationUsingTags($message, $tags, $url = null, $data = null, $buttons = null, $schedule = null) {
+    public function sendNotificationUsingTags($message, $tags, $url = null, $data = null, $buttons = null, $schedule = null, $autoInc = true) {
         $contents = array(
             "en" => $message
         );
@@ -128,10 +131,13 @@ class OneSignalClient
         $params = array(
             'app_id' => $this->appId,
             'contents' => $contents,
-            'filters' => [$tags],
-            'ios_badgeType'=>'Increase',
-            'ios_badgeCount'=>1
+            'filters' => [$tags]
         );
+
+        if ($autoInc) {
+            $params['ios_badgeType'] = 'Increase';
+            $params['ios_badgeCount'] = 1;
+        }
 
         if (isset($url)) {
             $params['url'] = $url;
