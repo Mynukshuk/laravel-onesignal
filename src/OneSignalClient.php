@@ -103,6 +103,9 @@ class OneSignalClient
         if ($autoInc) {
             $params['ios_badgeType'] = 'Increase';
             $params['ios_badgeCount'] = 1;
+        } else {
+            $params['ios_badgeType'] = 'SetTo';
+            $params['ios_badgeCount'] = 20;
         }
 
         if (isset($url)) {
@@ -139,6 +142,9 @@ class OneSignalClient
         if ($autoInc) {
             $params['ios_badgeType'] = 'Increase';
             $params['ios_badgeCount'] = 1;
+        } else {
+            $params['ios_badgeType'] = 'SetTo';
+            $params['ios_badgeCount'] = 20;
         }
 
         if (isset($url)) {
