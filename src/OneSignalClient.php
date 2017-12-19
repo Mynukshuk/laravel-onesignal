@@ -88,7 +88,7 @@ class OneSignalClient
         return $this;
     }
 
-    public function sendNotificationToUser($message, $userId, $url = null, $data = null, $buttons = null, $schedule = null, $autoInc = true) {
+    public function sendNotificationToUser($title, $message, $userId, $url = null, $data = null, $buttons = null, $schedule = null, $autoInc = true) {
         $contents = array(
             "en" => $message
         );
@@ -106,6 +106,12 @@ class OneSignalClient
         } else {
             $params['ios_badgeType'] = 'SetTo';
             $params['ios_badgeCount'] = 20;
+        }
+
+        if (isset($title)) {
+            $params['headings'] = array(
+                "en" => $title
+            );
         }
 
         if (isset($url)) {
@@ -127,7 +133,7 @@ class OneSignalClient
         $this->sendNotificationCustom($params);
     }
 
-    public function sendNotificationUsingTags($message, $tags, $url = null, $data = null, $buttons = null, $schedule = null, $autoInc = true) {
+    public function sendNotificationUsingTags($title, $message, $tags, $url = null, $data = null, $buttons = null, $schedule = null, $autoInc = true) {
         $contents = array(
             "en" => $message
         );
@@ -145,6 +151,12 @@ class OneSignalClient
         } else {
             $params['ios_badgeType'] = 'SetTo';
             $params['ios_badgeCount'] = 20;
+        }
+
+        if (isset($title)) {
+            $params['headings'] = array(
+                "en" => $title
+            );
         }
 
         if (isset($url)) {
