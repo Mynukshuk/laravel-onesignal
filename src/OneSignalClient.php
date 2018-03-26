@@ -180,9 +180,7 @@ class OneSignalClient
         if(isset($schedule)){
             $params['send_after'] = $schedule;
         }
-
-        print_r($params);
-        exit;
+        
         $this->sendNotificationCustom($params);
     }
 
