@@ -141,7 +141,7 @@ class OneSignalClient
         $params = array(
             'app_id' => $this->appId,
             'contents' => $contents,
-            'mutable_content' => true,
+            'mutable_content' => isset($image_url) ? false : true,
             'filters' => [$tags]
         );
 
