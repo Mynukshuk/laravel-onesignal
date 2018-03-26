@@ -168,7 +168,9 @@ class OneSignalClient
         }
 
         if (isset($image_url)) {
-            $params['ios_attachments'] = $image_url;
+            $params['ios_attachments'] = array(
+                "id1" => $image_url
+            );
         }
 
         if (isset($buttons)) {
