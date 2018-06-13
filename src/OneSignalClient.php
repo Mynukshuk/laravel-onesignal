@@ -133,7 +133,7 @@ class OneSignalClient
         $this->sendNotificationCustom($params);
     }
 
-    public function sendNotificationUsingTags($title, $message, $tags, $url = null, $data = null, $buttons = null, $schedule = null, $autoInc = true, $image_id = null, $image_url = null) {
+    public function sendNotificationUsingTags($title, $message, $tags, $url = null, $data = null, $buttons = null, $schedule = null, $autoInc = true, $image_id = null, $image_url = null, $ios_category = null) {
         $contents = array(
             "en" => $message
         );
@@ -179,6 +179,10 @@ class OneSignalClient
 
         if(isset($schedule)){
             $params['send_after'] = $schedule;
+        }
+
+        if(isset($ios_category)){
+            $params['ios_category'] = $ios_category;
         }
 
         $this->sendNotificationCustom($params);
