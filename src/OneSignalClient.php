@@ -133,17 +133,27 @@ class OneSignalClient
         $this->sendNotificationCustom($params);
     }
 
-    public function sendNotificationUsingTags($title, $message, $tags, $url = null, $data = null, $buttons = null, $schedule = null, $autoInc = true, $image_id = null, $image_url = null, $ios_category = null) {
+    public function sendNotificationUsingTags($title, $message, $tags, $url = null, $data = null, $buttons = null, $schedule = null, $autoInc = true, $image_id = null, $image_url = null, $ios_category = null, $silent = false)
+    {
         $contents = array(
             "en" => $message
         );
 
-        $params = array(
-            'app_id' => $this->appId,
-            'contents' => $contents,
-            'mutable_content' => isset($image_url) ? false : true,
-            'filters' => [$tags]
-        );
+        if ($silent) {
+            $params = array(
+                'app_id' => $this->appId,
+                'content_available' => $silent,
+                'mutable_content' => isset($image_url) ? false : true,
+                'filters' => [$tags]
+            );
+        } else {
+            $params = array(
+                'app_id' => $this->appId,
+                'contents' => $contents,
+                'mutable_content' => isset($image_url) ? false : true,
+                'filters' => [$tags]
+            );
+        }
 
         if ($autoInc) {
             $params['ios_badgeType'] = 'Increase';
